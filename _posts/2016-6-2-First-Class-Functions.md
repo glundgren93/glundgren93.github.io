@@ -31,7 +31,6 @@ singManySongs[1](); // song b
 * They can be stored in an object property:
 
 ```javascript
-
 var singingObject = {
   songA: 'singing A',
   songB: function() {
@@ -45,14 +44,12 @@ singingObject.songB(); // singing B
 * They can be created as needed:
 
 ```javascript
-
 (function() { return 'singing '; })() + 'nice song'; // singing nice song
 ```
 
 * They can be passed to a function:
 
 ```javascript
-
 function sing(fn, song) {
   return fn() + song;
 }
@@ -63,7 +60,6 @@ sing(function() { return 'singing ' }, 'this song'); // singing this song
 * They can be returned from a function:
 
 ```javascript
-
 function singASong() {
   return function() {
     return 'singing a Song';
