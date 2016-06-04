@@ -27,7 +27,6 @@ var singManySongs = [
 
 singManySongs[1](); // song b
 ```
-
 * They can be stored in an object property:
 
 ```javascript
