@@ -9,7 +9,6 @@ A pure function doesn't change the state outside of its body. Its result is calc
 
 
 ```javascript
-
 class Point {
   constructor(x, y) {
     this._x = x;
@@ -35,4 +34,4 @@ p.withX(1000); // {_x: 1000, _y: 1 }
 p; // {_x: 0, _y: 1 }
 ```
 
-Even though we are saying that the x will have a value of 1000, once we call p again, x will maintain its original value.
+Even though we are saying that the x will have a value of 1000, once we call p again, x will maintain its original value. Our methods are therefore considered pure.
