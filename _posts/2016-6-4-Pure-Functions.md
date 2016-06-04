@@ -30,9 +30,8 @@ class Point {
 // We defined p as a Point with 0,1
 var p = new Point(0, 1);
 
-// Even though we are saying that the x
-// is now 1000, once we call p again
-// x won't have changed.
+// Even though we are saying that the x is 1000
+// once we call p again, x won't have changed its value.
 p.withX(1000); // {_x: 1000, _y: 1 }
 
 p; // {_x: 0, _y: 1 }
