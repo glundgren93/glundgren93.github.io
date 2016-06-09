@@ -3,8 +3,6 @@ layout: post
 title: Unit Tests in Redux
 ---
 
-## What is unit testing
-
 Unit testing is an automated method of testing individual units of code to assure they are fit for use. The main goal of unit testing is to separate each part of your software and show that all parts are correct.
 
 ## Unit tests in Redux
