@@ -99,9 +99,9 @@ export default function(state = null, action) {
 So to test this reducer, we expect that the state returned from it will be the payload property of action.
 
 ```javascript
-import expect from 'expect'
+import expect from 'expect';
 import reducer from '../../src/reducers/reducer_selected_show';
-import * as types from '../../src/constants'
+import * as types from '../../src/constants';
 
 describe('selected show reducer', () => {
   it('should handle SELECTED_SHOW', () => {
