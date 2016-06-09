@@ -70,7 +70,7 @@ describe('actions', () => {
 })
 ```
 
-###Testing Reducers
+### Testing Reducers
 In Redux, a reducer receives an action and returns a new state based on the current state and action.
 
 ### Example
