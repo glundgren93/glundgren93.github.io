@@ -15,10 +15,16 @@ To install both of them:
 `npm install --save expect`
 
 
-We'll be running our tests with ES6, so we must use [Babel](http://babeljs.io/) as well.
+Since we are going to write of all our code in ES6, so we must use [Babel](http://babeljs.io/) as a transpiler.
 
 `npm install --save-dev babel-register`
 
+```bash
+// .babelrc
+{
+  "presets": ["es2015"]
+}
+```
 
 We must also add a couple of lines to `scripts` in the `package.json` file:
 
@@ -28,12 +34,11 @@ We must also add a couple of lines to `scripts` in the `package.json` file:
   "scripts": {
     ...
     "test": "mocha --compilers js:babel-register --recursive",
-    "test:watch": "npm test -- --watch",
   },
   ...
 }
 ```
-And to run our tests, we use `npm test` to run it once, or `npm run test:watch` to run on every file change.
+And to run all of ours tests, we use `npm test`.
 
 ## Testing Action
 In Redux, actions are payload of information that send data from your application to your store. They are functions which return plain objects.
