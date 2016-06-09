@@ -18,12 +18,11 @@ To install both of them:
 
 
 We'll be running our tests with ES6, so we must use [Babel](http://babeljs.io/) as well.
-To install both of them:
 
 `npm install --save-dev babel-register`
 
 
-we must add a couple of lines to `scripts` in the `package.json` file:
+We must also add a couple of lines to `scripts` in the `package.json` file:
 
 ```bash
 {
