@@ -5,9 +5,7 @@ title: Unit Tests in Redux
 
 Unit testing is an automated method of testing individual units of code to assure they are fit for use. The main goal of unit testing is to separate each part of your software and show that all parts are correct.
 
-## Unit tests in Redux
-
-### Configuration
+## Configuration
 To run our Redux tests, we must define a testing framework and an assertion library. We'll use [Mocha](http://mochajs.org/) and [Expect](https://www.npmjs.com/package/expect).
 
 To install both of them:
@@ -37,10 +35,10 @@ We must also add a couple of lines to `scripts` in the `package.json` file:
 ```
 And to run our tests, we use `npm test` to run it once, or `npm run test:watch` to run on every file change.
 
-### Testing Action
+## Testing Action
 In Redux, actions are payload of information that send data from your application to your store. They are functions which return plain objects.
 
-#### Example
+### Example
 We have an action that takes a show name and it will return an object with the argument we passed to it in its payload property.
 
 ```javascript
@@ -72,10 +70,10 @@ describe('actions', () => {
 })
 ```
 
-### Testing Reducers
+###Testing Reducers
 In Redux, a reducer receives an action and returns a new state based on the current state and action.
 
-#### Example
+### Example
 ```javascript
 import * as types from '../constants';
 
