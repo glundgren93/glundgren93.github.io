@@ -106,11 +106,11 @@ import * as types from '../../src/constants'
 describe('selected show reducer', () => {
   it('should handle SELECTED_SHOW', () => {
     const show = 'Lost';
-    
+
     expect(reducer([], {
       type: types.SELECTED_SHOW,
       payload: show
-    })).toEqual(show)
+    })).toEqual(show);
   });
 })
 ```
