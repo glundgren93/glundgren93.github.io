@@ -26,6 +26,7 @@ To install both of them:
 
 
 we must add a couple of lines to `scripts` in the `package.json` file:
+
 ```bash
 {
   ...
