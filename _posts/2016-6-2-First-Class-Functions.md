@@ -1,6 +1,7 @@
 ---
 layout: post
 title: First Class Functions in JavaScript
+tags: JavaScript
 ---
 
 Functions in JavaScript are considered first class. What that means is that they can do all the things a normal object can do. Just like any other variable.
