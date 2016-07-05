@@ -25,6 +25,8 @@ reportVariable(); // The variable was: i am a variable
 The above function exposes (returns) another function. When we assign the function to a variable, the variable will become the exposed function.
 Even though the outer function has returned, the inner function still has acccess to the variables inside the outer function scope.
 
+That's why when execute the **reportVariable** function we get the value assigned to it inside the outer function.
+
 # Data Privacy
 
 Closures are one way to enable data privacy in Javascript. You can't access the data from an outside scope except through methods defined within the closure scope.
