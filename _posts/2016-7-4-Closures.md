@@ -3,9 +3,7 @@ layout: post
 title: Closures
 ---
 
-"Closure is when a function remembers the variables around it even when that function is executed elsewhere."
-
-If we declare variables inside a function and return another function that uses the variables created, we are using closures.
+> "Closure is when a function remembers the variables around it even when that function is executed elsewhere."
 
 A closure can look like the following piece of code:
 
@@ -24,10 +22,8 @@ reportVariable(); // The variable was: i am a variable
 
 ```
 
-
 The above function exposes (returns) another function. When we assign the function to a variable, the variable will become the exposed function.
 Even though the outer function has returned, the inner function still has acccess to the variables inside the outer function scope.
-
 
 # Data Privacy
 
