@@ -2,11 +2,12 @@
 layout: post
 title: Closures
 ---
+
  # What is a Closure?
 
  "Closure is when a function remembers the variables around it even when that function is executed elsewhere."
 
-If we declare variables inside a function and return another function that uses the variables created, we are using closures. 
+If we declare variables inside a function and return another function that uses the variables created, we are using closures.
 
 A closure can look like the following piece of code:
 
