@@ -5,11 +5,12 @@
 }
 
 :root {
-  --max-width: 560px;
-  --font-body: "IBM Plex Mono", "Courier New", Courier, monospace;
+  --max-width: 760px;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-ui: "Inter", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", "Courier New", Courier, monospace;
   --color-text: #2a2520;
-  --color-muted: #8a8078;
+  --color-muted: #766e66;
   --color-bg: #faf8f5;
   --color-border: #e4ddd5;
 }
@@ -18,14 +19,15 @@ html {
   font-family: var(--font-body);
   color: var(--color-text);
   background: var(--color-bg);
-  line-height: 1.6;
-  font-size: 18px;
+  line-height: 1.75;
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem 1.5rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -49,36 +51,38 @@ a:hover {
 h1,
 h2,
 h3 {
-  line-height: 1.3;
+  font-family: var(--font-ui);
+  line-height: 1.25;
   font-weight: 500;
 }
 
 h1 {
-  font-size: 1.2rem;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  letter-spacing: -0.045em;
   margin-bottom: 0.75rem;
 }
 
 h2 {
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
 h3 {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   margin-top: 1.25rem;
   margin-bottom: 0.4rem;
 }
 
 p {
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.2rem;
 }
 
 ul,
 ol {
   margin-bottom: 0.75rem;
   padding-left: 1.5rem;
-  line-height: 1.4;
+  line-height: 1.7;
 }
 
 li {
@@ -129,6 +133,21 @@ img {
 }
 
 time {
+  font-family: var(--font-mono);
   color: var(--color-muted);
-  font-size: 0.85rem;
+  font-size: 0.65rem;
+}
+
+::selection {
+  background: #e8dfce;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+@media (max-width: 540px) {
+  body { padding: 1.5rem 1.1rem; }
+  html { font-size: 18px; }
 }
