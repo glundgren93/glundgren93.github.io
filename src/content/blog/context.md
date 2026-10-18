@@ -1,7 +1,7 @@
 ---
 title: "Context"
 description: "How an agent shocked me"
-date: 2026-03-29
+date: 2026-10-18
 ---
 
 It's been a while since I last posted. Things have been quiet chaotic and I didn't have time or energy to write anymore. It's not like I did a lot of writing before, but you get the point.

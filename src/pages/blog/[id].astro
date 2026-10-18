@@ -28,9 +28,130 @@ const { Content } = await render(post);
     </header>
     <Content />
   </article>
+  <dialog class="image-viewer" aria-label="Expanded image">
+    <button class="image-close" type="button" aria-label="Close expanded image">Close ×</button>
+    <div class="image-stage">
+      <button class="image-zoom" type="button" aria-label="Zoom to full size" aria-pressed="false">
+        <img alt="" />
+      </button>
+    </div>
+  </dialog>
 </Base>
 
+<script>
+  const viewer = document.querySelector<HTMLDialogElement>(".image-viewer")!;
+  const expanded = viewer.querySelector<HTMLImageElement>("img")!;
+  const zoom = viewer.querySelector<HTMLButtonElement>(".image-zoom")!;
+  const stage = viewer.querySelector<HTMLElement>(".image-stage")!;
+
+  document.querySelectorAll<HTMLImageElement>("article img").forEach((image) => {
+    if (image.closest("a")) return;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "image-expand";
+    button.setAttribute("aria-label", `Expand image: ${image.alt || "Blog image"}`);
+    image.replaceWith(button);
+    button.append(image);
+    button.addEventListener("click", () => {
+      expanded.src = image.currentSrc || image.src;
+      expanded.alt = image.alt;
+      zoom.setAttribute("aria-pressed", "false");
+      zoom.setAttribute("aria-label", "Zoom to full size");
+      viewer.showModal();
+      document.documentElement.style.overflow = "hidden";
+      stage.scrollTo(0, 0);
+    });
+  });
+
+  zoom.addEventListener("click", () => {
+    const enlarged = zoom.getAttribute("aria-pressed") !== "true";
+    zoom.setAttribute("aria-pressed", String(enlarged));
+    zoom.setAttribute("aria-label", enlarged ? "Fit image to screen" : "Zoom to full size");
+  });
+  viewer.querySelector(".image-close")!.addEventListener("click", () => viewer.close());
+  viewer.addEventListener("click", (event) => {
+    if (event.target === viewer || event.target === stage) viewer.close();
+  });
+  viewer.addEventListener("close", () => {
+    document.documentElement.style.overflow = "";
+  });
+</script>
+
 <style>
+  article :global(.image-expand) {
+    display: block;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+  }
+
+  article :global(.image-expand:focus-visible) {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+  }
+
+  .image-viewer {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: 96vw;
+    height: 94dvh;
+    max-width: none;
+    max-height: none;
+    padding: 3rem 0.5rem 0.5rem;
+    border: 0;
+    background: var(--color-bg);
+  }
+
+  .image-viewer::backdrop {
+    background: rgb(0 0 0 / 80%);
+  }
+
+  .image-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+  }
+
+  .image-stage {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+
+  .image-zoom {
+    display: block;
+    margin: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+  }
+
+  .image-zoom img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(94dvh - 3.5rem);
+    object-fit: contain;
+  }
+
+  .image-zoom[aria-pressed="true"] {
+    width: max-content;
+    cursor: zoom-out;
+  }
+
+  .image-zoom[aria-pressed="true"] img {
+    max-width: none;
+    max-height: none;
+  }
+
   article header {
     margin-bottom: 2rem;
   }
