@@ -12,11 +12,10 @@ interface Props {
   title: string;
   description?: string;
   article?: Article;
-  flushHeader?: boolean;
 }
 
 const siteName = "Gabriel Lundgren";
-const { title, description = "Gabriel Lundgren's personal site", article, flushHeader = false } = Astro.props;
+const { title, description = "Gabriel Lundgren's personal site", article } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const structuredData = article && {
   "@context": "https://schema.org",
@@ -63,7 +62,7 @@ const structuredData = article && {
     {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
   </head>
   <body>
-    <Header flush={flushHeader} />
+    <Header />
     <main>
       <slot />
     </main>

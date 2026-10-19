@@ -35,6 +35,7 @@ body {
 
 main {
   flex: 1;
+  padding-top: 1.25rem;
 }
 
 a {
@@ -159,4 +160,43 @@ a:focus-visible, button:focus-visible {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+.entry-list {
+  list-style: none;
+  padding: 0;
+}
+
+.entry-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.entry-list a {
+  font: 500 0.95rem / 1.4 var(--font-ui);
+  letter-spacing: -0.025em;
+  text-decoration: none;
+}
+
+.entry-list a:hover {
+  color: var(--color-muted);
+}
+
+.entry-description {
+  margin: 0.35rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.entry-list time {
+  white-space: nowrap;
+}
+
+@media (max-width: 540px) {
+  .entry-list li { flex-direction: column; gap: 0.4rem; }
+  .entry-list li:has(> time) { flex-direction: column-reverse; }
 }

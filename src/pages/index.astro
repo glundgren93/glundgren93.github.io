@@ -7,15 +7,15 @@ const posts = (await getCollection("blog"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<Base title="Gabriel Lundgren" flushHeader>
+<Base title="Gabriel Lundgren">
   <h1 class="visually-hidden">Gabriel Lundgren – Writing</h1>
   {posts.length === 0 && <p>No posts yet.</p>}
-  <ul class="post-list">
+  <ul class="entry-list">
     {posts.map((post) => (
       <li>
         <div>
           <a href={`/blog/${post.id}/`}>{post.data.title}</a>
-          <p class="post-description">{post.data.description}</p>
+          <p class="entry-description">{post.data.description}</p>
         </div>
         <time datetime={post.data.date.toISOString()}>
           {post.data.date.toLocaleDateString("en-US", {
@@ -30,36 +30,8 @@ const posts = (await getCollection("blog"))
 </Base>
 
 <style>
-  .post-description { margin: 0.35rem 0 0; color: var(--color-muted); font-size: 0.85rem; }
-  .post-list {
-    list-style: none;
-    padding: 0;
-  }
-
-  .post-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-    padding: 1.25rem 0;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .post-list li:first-child {
+  .entry-list li:first-child {
+    padding-top: 0;
     border-top: 0;
-  }
-
-  .post-list a {
-    font: 500 0.95rem / 1.4 var(--font-ui);
-    letter-spacing: -0.025em;
-    text-decoration: none;
-  }
-
-  .post-list a:hover {
-    color: var(--color-muted);
-  }
-  time { white-space: nowrap; }
-  @media (max-width: 540px) {
-    .post-list li { flex-direction: column-reverse; gap: 0.4rem; }
   }
 </style>
