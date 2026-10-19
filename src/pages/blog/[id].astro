@@ -14,7 +14,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Base title={`${post.data.title} - Gabriel Lundgren`} description={post.data.description}>
+<Base title={`${post.data.title} - Gabriel Lundgren`} description={post.data.description} article={{ headline: post.data.title, publishedAt: post.data.date }}>
   <article>
     <header>
       <h1>{post.data.title}</h1>
@@ -31,17 +31,16 @@ const { Content } = await render(post);
   <dialog class="image-viewer" aria-label="Expanded image">
     <button class="image-close" type="button" aria-label="Close expanded image">Close ×</button>
     <div class="image-stage">
-      <button class="image-zoom" type="button" aria-label="Zoom to full size" aria-pressed="false">
-        <img alt="" />
-      </button>
+      <button class="image-zoom" type="button" aria-label="Zoom to full size" aria-pressed="false"></button>
     </div>
   </dialog>
 </Base>
 
 <script>
   const viewer = document.querySelector<HTMLDialogElement>(".image-viewer")!;
-  const expanded = viewer.querySelector<HTMLImageElement>("img")!;
   const zoom = viewer.querySelector<HTMLButtonElement>(".image-zoom")!;
+  const expanded = document.createElement("img");
+  zoom.append(expanded);
   const stage = viewer.querySelector<HTMLElement>(".image-stage")!;
 
   document.querySelectorAll<HTMLImageElement>("article img").forEach((image) => {
@@ -147,7 +146,7 @@ const { Content } = await render(post);
     cursor: zoom-in;
   }
 
-  .image-zoom img {
+  .image-zoom :global(img) {
     display: block;
     max-width: 100%;
     max-height: calc(100dvh - 5.5rem);
@@ -162,7 +161,7 @@ const { Content } = await render(post);
     cursor: zoom-out;
   }
 
-  .image-zoom[aria-pressed="true"] img {
+  .image-zoom[aria-pressed="true"] :global(img) {
     max-width: none;
     max-height: none;
   }
