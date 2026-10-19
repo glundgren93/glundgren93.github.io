@@ -7,9 +7,8 @@ const posts = (await getCollection("blog"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<Base title="Gabriel Lundgren">
+<Base title="Gabriel Lundgren" flushHeader>
   <h1 class="visually-hidden">Gabriel Lundgren – Writing</h1>
-  <h2 class="list-label">Writing</h2>
   {posts.length === 0 && <p>No posts yet.</p>}
   <ul class="post-list">
     {posts.map((post) => (
@@ -31,13 +30,6 @@ const posts = (await getCollection("blog"))
 </Base>
 
 <style>
-  .list-label {
-    font: 0.6rem var(--font-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 0.75rem;
-    color: var(--color-muted);
-  }
   .post-description { margin: 0.35rem 0 0; color: var(--color-muted); font-size: 0.85rem; }
   .post-list {
     list-style: none;
@@ -51,6 +43,10 @@ const posts = (await getCollection("blog"))
     gap: 1rem;
     padding: 1.25rem 0;
     border-top: 1px solid var(--color-border);
+  }
+
+  .post-list li:first-child {
+    border-top: 0;
   }
 
   .post-list a {
