@@ -14,7 +14,7 @@ When I realized this pattern, I decided to optimize it. I installed an Obsidian 
 
 During one work day, my PM sent a message on Slack with an image and a brief text saying something was missing.
 
-![Slack message from my PM](./kim_slack.jpg)
+![Slack message from my PM](./kim_slack.png)
 
 I saw it and reacted with the emoji to pick it up later. Eventually during that day, I moved the card to Now and kind of forgot about it. A couple of hours passed and I realized a PR was opened related to this task. I got very confused, went to the agent window and asked about it.
 
