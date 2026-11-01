@@ -1,6 +1,6 @@
 ---
 title: Giving our agents proper tooling
-description: ''
+description: What my team has learned recently
 date: 2026-11-01
 draft: false
 ---
