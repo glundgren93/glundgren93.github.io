@@ -20,6 +20,8 @@ At Funnel, we work with three separate environments: one staging and two product
 
 So I spent some time optimizing this. I made it possible for every feature branch to get its own isolated, staging-based preview instance. This sped things up immensely.
 
+![Slack message proposing preview deployments](./preview_deployments_rfc.png)
+
 Of course, there are still cases where we test things ourselves, but now our agents can test their own changes in headless mode against an isolated preview deployment. This gives us much more confidence that what we ship actually works as expected.
 
 None of this means everything works out smoothly. Trust me, it doesn’t. But it’s amazing to see how much velocity we’ve gained just by spending time giving our agents proper tooling. 
