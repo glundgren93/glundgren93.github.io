@@ -60,6 +60,14 @@ const structuredData = article && {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
+    {import.meta.env.PROD && (
+      <script
+        is:inline
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "996e588e0f4542a185e024ded4726359"}'
+      ></script>
+    )}
   </head>
   <body>
     <Header />
